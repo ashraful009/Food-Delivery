@@ -1,0 +1,183 @@
+/* Order.css */
+
+/* মেইন কার্ড */
+.order-page {
+  position: relative; /* অ্যানিমেশনের জন্য জরুরি */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 80px;
+  padding: 0 20px; /* ডানে বামে প্যাডিং */
+  margin-bottom: 20px;
+  border-radius: 50px; 
+  
+  /* ডিফল্ট বর্ডার (যখন হোভার করা হবে না) */
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  z-index: 1; /* সব কন্টেন্ট উপরে রাখার জন্য */
+  overflow: hidden; /* বর্ডারের বাইরের অংশ কাটার জন্য */
+  
+  /* এলিমেন্টগুলোর মাঝের গ্যাপ বা স্পেস */
+  gap: 20px; 
+  border: 2px solid #f0f0f0; /* নরমাল অবস্থায় হালকা বর্ডার */
+  transition: border-color 0.3s;
+}
+
+/* --- হোভার ইফেক্ট এবং অ্যানিমেশন সেটআপ --- */
+
+/* ১. কালারফুল ব্যাকগ্রাউন্ড লেয়ার (যা ঘুরবে) */
+.order-page::before {
+  content: "";
+  position: absolute;
+  /* সেন্টার পজিশন */
+  top: 50%;
+  left: 50%;
+  /* সাইজ অনেক বড় দিতে হবে যাতে ঘোরার সময় কোণাগুলো ঢাকা থাকে */
+  width: 500px; 
+  height: 500px;
+  
+  /* নিওন কালার গ্রেডিয়েন্ট */
+  background-image: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 10deg, /* কিছুটা গ্যাপ রাখা হয়েছে যাতে মুভিং এফেক্ট বোঝা যায় */
+    #ff0000 100deg, 
+    #ff00c8 140deg,
+    #002bff 180deg,
+    #00ffd5 220deg,
+    #48ff00 260deg,
+    #fffb00 300deg,
+    #ff7300 340deg,
+    #ff0000 360deg
+  );
+  
+  /* সেন্টারে সেট করার জন্য ট্রান্সফর্ম */
+  transform: translate(-50%, -50%);
+  z-index: -2; /* সবার নিচে */
+  
+  /* শুরুতে লুকানো থাকবে */
+  opacity: 0; 
+  transition: opacity 0.3s ease;
+  
+  /* ঘোরার অ্যানিমেশন */
+  animation: rotate 4s linear infinite;
+}
+
+/* ২. মাঝখানের সাদা কভার (যা বর্ডার বাদে বাকিটা ঢেকে দিবে) */
+.order-page::after {
+  content: "";
+  position: absolute;
+  /* বর্ডার কতটুকু মোটা হবে তা এখানে ঠিক করবেন (3px) */
+  inset: 1px; 
+  border-radius: 48px; /* মেইন রেডিয়াস থেকে একটু কম */
+  background: #fff; /* ভেতরের রঙ সাদা */
+  z-index: -1; /* গ্রেডিয়েন্টের উপরে কিন্তু লেখার নিচে */
+}
+
+/* --- হোভার অ্যাকশন --- */
+.order-page:hover {
+  border-color: transparent; /* নরমাল বর্ডার গায়েব হবে */
+}
+
+.order-page:hover::before {
+  opacity: 1; /* হোভার করলে নিওন কালার দৃশ্যমান হবে */
+}
+
+/* ঘোরার অ্যানিমেশন কিফ্রেম */
+@keyframes rotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* --- ভেতরের কন্টেন্ট স্টাইল (আগের মতোই) --- */
+
+.product-img { flex-shrink: 0; }
+
+.img {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e0e0e0;
+}
+
+/* টাইটেল */
+.product-title {
+  flex-grow: 1;
+  min-width: 100px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* প্রাইস */
+.product-price {
+  margin-right: 10px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 800;
+  color: #333;
+  margin: 0;
+}
+
+/* বাটন এবং কোয়ান্টিটি */
+.product-quantity {
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 5px 10px;
+  border-radius: 30px;
+  gap: 10px;
+  border: 1px solid #eee;
+}
+
+.quantity {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  width: 20px;
+  text-align: center;
+}
+
+.increment-btn, .decrement-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.increment-btn:hover, .decrement-btn:hover {
+  background-color: #aeff00;
+}
+
+/* ডিলিট আইকন */
+.delete-icon {
+  cursor: pointer;
+  color: #ff4757;
+  font-size: 18px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.dlt-icon:hover {
+  transform: scale(1.2);
+}
+

@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Manrope', sans-serif;
+    background-color: #f7f7f7; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    overflow-x: hidden;
+}
+.product-info {
+    display: flex;
+    flex-direction: row; 
+    background-color: #ffffff; 
+    border-radius: 24px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    max-width: 1200px; 
+    margin: 40px auto; 
+    overflow: hidden; 
+}
+
+.left-side {
+    flex: 1.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px; 
+    background-color: #fcfcfc; 
+    border-radius: 24px 0 0 24px;
+    position: relative; 
+    overflow: hidden;
+}
+
+.left-side img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 15px; /* ছবির ভেতরের ছবির কোণা গোলাকার */
+    object-fit: cover; /* যদি ইমেজ সাইজ ভিন্ন হয় */
+}
+.right-side {
+    flex: 1; /* ডান পাশের অংশ তুলনামূলক কম চওড়া */
+    padding: 40px; /* ছবির রাইট সাইডের প্যাডিং */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}

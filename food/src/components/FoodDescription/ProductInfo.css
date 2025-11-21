@@ -1,0 +1,205 @@
+/* ফন্ট ইমপোর্ট (ছবির মতো ক্লিন লুকের জন্য) */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap');
+
+/* পুরো কন্টেইনার (Right Side Panel) */
+.container {
+    font-family: 'Manrope', sans-serif;
+    max-width: 500px; /* ছবির রাইট সাইড প্যানেলের মতো */
+    background-color: #fff;
+    padding: 20px;
+    /* যদি পুরোটা কার্ডের মতো করতে চান তবে নিচের লাইনগুলো রাখুন */
+    border-radius: 24px; 
+    color: #111;
+}
+
+/* ব্রেডক্রাম্ব এবং আইডি */
+.headerInfo {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #999; /* হালকা ধূসর */
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.breadcrumb {
+    color: #b0b0b0;
+}
+
+.itemId {
+    color: #d1d1d1;
+}
+
+/* প্রোডাক্ট টাইটেল */
+.tittle {
+    font-size: 32px; /* বেশ বড় ফন্ট */
+    font-weight: 800; /* এক্সট্রা বোল্ড */
+    line-height: 1.2;
+    margin: 0 0 15px 0;
+    color: #000;
+}
+
+/* রিভিউ সেকশন */
+.ratingRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 30px;
+}
+
+.stars {
+    font-size: 14px;
+    color: #fbc531; /* গোল্ডেন কালার */
+    letter-spacing: 1px;
+}
+
+.review-text {
+    font-size: 13px;
+    color: #888;
+    font-weight: 500;
+}
+
+/* প্রাইস এবং বাটন সেকশন */
+.price-action-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.price {
+    font-size: 36px;
+    font-weight: 800;
+    color: #111;
+    /* কারেন্সি সিম্বল ছোট দেখানোর জন্য */
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* "Add to Cart" বাটন - ছবির হাইলাইট */
+.add-to-cart {
+    background-color: #ccf000; /* সেই লাইম গ্রিন কালার */
+    color: #000;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 50px; /* পিল শেপ */
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.add-to-cart:hover {
+    background-color: #bde000;
+    transform: scale(1.02);
+}
+
+/* লাভ এবং শেয়ার আইকন (গোল এবং বর্ডারসহ) */
+.love-icon, .share-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid #eee;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    cursor: pointer;
+    color: #333;
+    transition: all 0.2s;
+}
+
+.love-icon:hover, .share-icon:hover {
+    border-color: #000;
+    background-color: #f9f9f9;
+}
+
+/* স্টক এবং ডেলিভারি ইনফো */
+.Stock-Delivery-row {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0; /* সেপারেশন লাইন */
+}
+
+.stock-row, .delivery-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.stock, .delivery {
+    color: #bbb; /* লেবেলগুলো হালকা রঙের */
+}
+
+/* ছবির মতো সবুজ লিংক */
+.Stock-Delivery-row span:nth-child(2) {
+    color: #333; /* ভ্যালু কালো */
+    font-weight: 600;
+    margin-right: auto; /* লিংককে ডান পাশে ঠেলে দেওয়ার জন্য */
+}
+
+.Stock-Delivery-row a {
+    color: #9cbd3c; /* সফট গ্রিন লিংক */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.devider {
+    display: none; /* আপনার HTML এ ডিভাইডার ছিল, কিন্তু এই ডিজাইনে আমরা ফ্লেক্স গ্যাপ ব্যবহার করেছি তাই এটা হাইড করে দিলাম */
+}
+
+/* ডেসক্রিপশন সেকশন */
+.description-card {
+    /* ছবিতে ডেসক্রিপশন আলাদা একটা কার্ডের মতো মনে হচ্ছে */
+    background-color: #fcfcfc; /* খুব হালকা ব্যাকগ্রাউন্ড */
+    padding: 25px;
+    border-radius: 20px;
+}
+
+.descripTittle {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #b0b0b0; /* ছবির মতো ধূসর টাইটেল */
+}
+
+.descripText {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    font-weight: 500;
+}
+
+/* রেস্পন্সিভ ফিক্স */
+@media (max-width: 480px) {
+    .price-action-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .actions {
+        width: 100%;
+    }
+    
+    .add-to-cart {
+        flex-grow: 1;
+        text-align: center;
+    }
+}

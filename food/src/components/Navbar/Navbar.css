@@ -1,0 +1,138 @@
+/* Navbar.css */
+
+/* Container */
+.navbar {
+  width: 100%;
+  padding: 14px 36px;
+  background: #ffffff;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* LEFT: logo + menu + search */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 36px;           /* distance between logo, menu, search */
+}
+
+/* Logo */
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+}
+.logo .blue {
+  color: #1e88ff; /* blue */
+}
+.logo .green {
+  color: #3bb000; /* green */
+}
+
+/* Menu */
+.menu {
+  display: flex;
+  list-style: none;
+  gap: 22px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+.menu li {
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.15s ease, transform 0.12s ease;
+}
+.menu li:hover {
+  color: #000;
+  transform: translateY(-1px);
+}
+
+/* Search box (placed inside .nav-left per your JSX) */
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.search-box input {
+  width: 300px;
+  max-width: 36vw;
+  padding: 9px 14px 9px 38px;
+  background: #f3f3f3;
+  border: 1px solid transparent;
+  border-radius: 26px;
+  outline: none;
+  font-size: 14px;
+  color: #222;
+  transition: background 0.15s ease, box-shadow 0.12s ease;
+}
+.search-box input:focus {
+  background: #fff;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  border-color: rgba(0,0,0,0.06);
+}
+
+/* icon inside search */
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #9aa0a6;
+  pointer-events: none;
+}
+
+/* RIGHT: cart etc. */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* simple cart */
+.cart {
+  position: relative;
+  cursor: pointer;
+  font-size: 14px;
+  color: #222;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: background 0.12s ease;
+}
+.cart:hover {
+  background: rgba(0,0,0,0.03);
+}
+
+/* cart badge (if you add one later) */
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: #2ecc40;
+  color: white;
+  font-size: 11px;
+  padding: 3px 6px;
+  border-radius: 999px;
+}
+
+/* Responsive: small screens */
+@media (max-width: 920px) {
+  .menu { display: none; } /* hide menu on smaller screens */
+  .search-box input { width: 180px; max-width: 40vw; }
+  .logo { font-size: 20px; }
+  .nav-left { gap: 18px; }
+}
+
+@media (max-width: 520px) {
+  .search-box input { display: none; } /* hide search on very small */
+  .navbar {
+    padding: 12px 16px;
+  }
+}

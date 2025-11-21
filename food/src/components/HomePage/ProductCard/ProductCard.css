@@ -1,0 +1,170 @@
+
+.product-card {
+  display: flex;
+  flex-direction: row; /* পাশাপাশি রাখার জন্য Row */
+  width: 600px; /* চওড়া বেশি */
+  height: 280px; /* হাইট ফিক্সড */
+  background-color: #ffffff;
+  border-radius: 35px; /* প্রদত্ত ছবির মত বেশি কার্ভ */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08); /* সফট শ্যাডো */
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 50px auto;
+}
+
+/* ----- বাম পাশ (ছবি) ----- */
+.product-image {
+  flex: 0 0 45%; /* ৪৫% জায়গা নিবে */
+  position: relative;
+  background-color: #f4f4f4;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ছবি পুরো এরিয়া জুড়ে থাকবে */
+  transition: transform 0.5s ease;
+}
+
+/* হোভার করলে ছবি একটু জুম হবে */
+.product-image img:hover {
+  transform: scale(1.10);
+}
+
+/* ছবির উপরের ব্যাজ */
+.badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #ffffff;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #222;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ----- ডান পাশ (তথ্য) ----- */
+.product-info {
+  flex: 1; /* বাকি জায়গা নিবে */
+  padding: 20px;
+  margin-top: 0%;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* কন্টেন্ট উপরে এবং বাটন নিচে ফিক্সড রাখার জন্য */
+}
+
+/* উপরের টেক্সট কন্টেন্ট */
+.text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.category {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #888;
+  font-weight: 600;
+}
+
+.rating-box {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: bold;
+  color: #222;
+}
+
+.review-count {
+  font-weight: normal;
+  color: #888;
+  font-size: 10px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.description {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  margin: 5px 0 15px 0;
+}
+
+/* দামের সেকশন */
+.price-tag {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.price {
+  font-size: 32px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #aaa;
+  font-size: 18px;
+}
+
+/* ----- বাটন সেকশন ----- */
+.action-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 5px;
+}
+
+/* প্রদত্ত ছবির মতো কালার গ্রেডিং (Lime Green) */
+.add-btn {
+  flex: 1; /* বাটনটি একটু বড় হবে */
+  background-color: #aeff00; /* সেইম গ্রিন কালার */
+  color: #1a1a1a;
+  border: none;
+  padding: 10px;
+  border-radius: 50px; /* পিল শেপ */
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.add-btn:hover {
+  background-color: #9be000;
+}
+
+.buy-btn {
+  flex: 1;
+  background-color: #f5f5f5;
+  border: none;
+  padding: 15px;
+  border-radius: 50px;
+  font-weight: 600;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.buy-btn:hover {
+  background-color: #e0e0e0;
+}

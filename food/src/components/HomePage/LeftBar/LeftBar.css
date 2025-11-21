@@ -1,0 +1,63 @@
+.left-bar {
+  width: 260px; /* ফিক্সড উইডথ */
+  background-color: #ffffff;
+  padding: 30px 20px;
+  border-radius: 30px; /* কার্ডের মতো কার্ভ */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* খুব হালকা শ্যাডো */
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* দুটি সেকশনের মাঝখানে গ্যাপ */
+  height: fit-content; /* যতটুকু কন্টেন্ট ততটুকু হাইট */
+}
+/* --- শিরোনাম (Headings) --- */
+.package, .food-categories {
+  font-size: 14px;
+  font-weight: 800;
+  color: #aeff00; /* আপনার থিমের লাইম গ্রিন কালার */
+  text-transform: uppercase; /* সব বড় হাতের লেখা */
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f4f4f4; /* নিচে হালকা দাগ */
+  padding-bottom: 10px;
+}
+/* --- মেনু আইটেমগুলো (h3) --- */
+/* আমরা ক্লাস নাম ধরে না ডেকে সরাসরি h3 কে স্টাইল করছি যাতে সবগুলোতে পায় */
+.meal-package h3, 
+.categories h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #666; /* নরম ধূসর কালার */
+  padding: 12px 20px;
+  margin: 8px 0;
+  border-radius: 50px; /* পিল বা ক্যাপসুল শেপ */
+  cursor: pointer;
+  transition: all 0.3s ease; /* স্মুথ এনিমেশন */
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+/* --- হোভার ইফেক্ট (Mouse নিলে যা হবে) --- */
+.meal-package h3:hover, 
+.categories h3:hover {
+  background-color: #f9f9f9; /* খুব হালকা ব্যাকগ্রাউন্ড */
+  color: #1a1a1a; /* টেক্সট কালো হয়ে যাবে */
+  transform: translateX(10px); /* ডান দিকে একটু সরে যাবে */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+/* একটিভ বা স্পেশাল আইটেম বোঝাতে (যেমন Offers) */
+.categories h3.offer {
+  color: #ff4757; /* অফারের জন্য একটু লালচে ভাব */
+}
+.categories h3.offer:hover {
+  background-color: #ff4757;
+  color: white;
+}
+/* লাঞ্চ বা ডিনার সিলেক্ট করলে যেন লাইম গ্রিন হয় (Demo Active State) */
+/* আপনি চাইলে React এ condition দিয়ে active class এড করতে পারেন */
+.categories h3:active,
+.meal-package h3:active {
+  background-color: #aeff00;
+  color: #1a1a1a;
+  transform: scale(0.98); /* ক্লিকের সময় একটু ছোট হবে */
+}
