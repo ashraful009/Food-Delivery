@@ -1,0 +1,172 @@
+/* Footer.css */
+
+.footer {
+  background-color: #1a1a1a; /* ডার্ক ব্যাকগ্রাউন্ড */
+  color: #fff;
+  padding: 60px 0 0 0;
+  font-family: 'Segoe UI', sans-serif;
+  border-top-left-radius: 60px; /* উপরে সুন্দর কার্ভ ডিজাইন */
+  border-top-right-radius: 60px;
+  margin-top: 50px; /* মেইন কন্টেন্ট থেকে দূরত্ব */
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  gap: 30px;
+}
+
+/* --- Section Styling --- */
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Brand Section */
+.footer-logo {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.highlight {
+  color: #aeff00; /* থিম কালার */
+}
+
+.footer-desc {
+  font-size: 14px;
+  color: #bbb;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  background: #333;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.icon:hover {
+  background: #aeff00;
+  color: #000;
+  transform: translateY(-5px);
+}
+
+/* --- Links & Help Section --- */
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #aeff00; /* টাইটেল গ্রিন কালার */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #ccc;
+  font-size: 14px;
+  transition: 0.2s;
+  display: inline-block;
+}
+
+/* হোভার করলে লিংক ডানদিকে সরে যাবে এবং কালার হবে */
+ul li a:hover {
+  color: #aeff00;
+  transform: translateX(5px);
+}
+
+/* --- Contact Section --- */
+.contact-section p {
+  color: #bbb;
+  font-size: 14px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Newsletter Input */
+.newsletter {
+  margin-top: 20px;
+  display: flex;
+  gap: 5px;
+}
+
+.newsletter input {
+  padding: 10px 15px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+}
+
+.newsletter button {
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: none;
+  background-color: #aeff00;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.newsletter button:hover {
+  background-color: #98e000;
+  transform: scale(1.05);
+}
+
+/* --- Copyright Bar --- */
+.footer-bottom {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  border-top: 1px solid #333;
+  color: #777;
+  font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+  }
+  
+  .footer-container {
+    flex-direction: column;
+    padding: 0 20px;
+  }
+}
