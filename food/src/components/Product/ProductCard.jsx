@@ -1,18 +1,15 @@
-import image from "../../../assets/chicken.webp"; // আপনার ইমেজের পাথ ঠিক রাখবেন
+import image from "../../assets/chicken.webp"; 
 import "./ProductCard.css";
 
 function ProductCard() {
   return (
     <>
       <div className="product-card">
-        {/* Left Side: Image */}
         <div className="product-image">
           <img src={image} alt="food Image" />
-          {/* ইমেজের উপর ছোট্ট ব্যাজ (অপশনাল ডিজাইনের জন্য) */}
           <span className="badge">On Sale</span>
         </div>
 
-        {/* Right Side: Info */}
         <div className="product-info">
           <div className="text-content">
             <div className="header-row">
