@@ -1,0 +1,104 @@
+/* Home.css */
+
+/* ১. মেইন কন্টেইনার */
+.home-page {
+  background-color: #f8f9fa; /* খুব হালকা ধূসর ব্যাকগ্রাউন্ড পুরো সাইটের জন্য */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ২. স্টিকি নেভবার */
+.nav-bar {
+  position: sticky; /* স্ক্রল করলেও নড়বে না */
+  top: 0;
+  z-index: 1000; /* অন্য সবকিছুর উপরে থাকবে */
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* ৩. মাঝখানের সেকশন (LeftBar + Catalog) */
+.middle-section {
+  display: flex; /* পাশাপাশি আনার জন্য */
+  gap: 10px; /* সাইডবার এবং ক্যাটালগের মাঝখানে ফাঁকা */
+  max-width: 1400px; /* খুব বড় স্ক্রিনে যাতে ছড়িয়ে না যায় */
+  margin: 30px auto; /* পেজের মাঝখানে রাখবে */
+  padding: 0 20px;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: flex-start; /* স্টিকি সাইডবারের জন্য জরুরি */
+}
+
+/* ৪. বাম পাশের স্টিকি সাইডবার */
+.left-side-bar {
+  width: 260px; /* ফিক্সড এবং কম জায়গা */
+  flex-shrink: 0; /* জায়গা ছোট হলে সংকুচিত হবে না */
+  
+  /* সাইডবার স্টিকি করার ম্যাজিক কোড */
+  position: sticky;
+  top: 100px; /* নেভবার থেকে একটু নিচে ফিক্সড হয়ে থাকবে */
+  height: fit-content;
+  
+  /* অপশনাল: আলাদা বোঝানোর জন্য */
+  background: transparent; 
+}
+
+/* ৫. ডান পাশের প্রোডাক্ট ক্যাটালগ */
+.product-catalog {
+  flex: 1; /* বাকি পুরো জায়গা নিয়ে নিবে */
+  display: flex; /* ফ্লেক্স লেআউট */
+  flex-wrap: wrap; /* প্রোডাক্ট ২টার বেশি হলে নিচে নামবে */
+  gap: 30px; /* কার্ডগুলোর মাঝখানে গ্যাপ */
+}
+
+/* ৬. প্রোডাক্ট কার্ডের সাইজ কন্ট্রোল (এক লাইনে ২ টি) */
+/* যেহেতু ProductCard কম্পোনেন্টটি ব্যবহার হচ্ছে, আমরা তার প্যারেন্ট থেকে সাইজ কন্ট্রোল করছি */
+.product-catalog > * {
+  /* ৫০% জায়গা নিবে মাইনাস গ্যাপের অর্ধেক (১৫px) */
+  flex-basis: calc(50% - 15px);
+  max-width: calc(50% - 15px);
+  
+  /* আগের কার্ডের ফিক্সড উইডথ ওভাররাইড করার জন্য */
+  width: 100% !important; 
+  margin: 0 !important; /* কার্ডের ডিফল্ট মার্জিন সরাবে */
+}
+
+/* ৭. ফুটার (ছোট এবং সুন্দর) */
+.footer {
+  margin-top: auto; /* কন্টেন্ট কম থাকলেও ফুটার নিচে থাকবে */
+  width: 100%;
+}
+
+/* ফুটারের ভিতরের প্যাডিং কমিয়ে ছোট করা */
+.footer .footer {
+  padding-top: 30px; /* আগের ৬০px থেকে কমিয়ে আনা হয়েছে */
+  margin-top: 50px;
+}
+
+/* --- রেসপন্সিভ ডিজাইন (মোবাইল ও ট্যাবলেট) --- */
+
+/* ট্যাবলেট ভিউ (স্ক্রিন ছোট হলে ১টি করে কার্ড দেখাবে) */
+@media (max-width: 1024px) {
+  .product-catalog > * {
+    flex-basis: 100%; /* পুরো জায়গা নিবে */
+    max-width: 100%;
+  }
+}
+
+/* মোবাইল ভিউ */
+@media (max-width: 768px) {
+  .middle-section {
+    flex-direction: column; /* মোবাইলে সাইডবার উপরে চলে যাবে */
+  }
+
+  .left-side-bar {
+    width: 100%; /* মোবাইলে সাইডবার পুরো চওড়া হবে */
+    position: static; /* স্টিকি থাকবে না */
+    margin-bottom: 20px;
+  }
+  
+  .nav-bar {
+    position: static; /* মোবাইলে নেভবার স্টিকি রাখলে জায়গা নষ্ট হয়, তাই বাদ দিতে পারেন */
+  }
+}

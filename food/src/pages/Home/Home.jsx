@@ -2,6 +2,7 @@ import Navbar from "../../components/Layout/Navbar/Navbar.jsx";
 import Leftbar from "../../components/Layout/LeftBar/LeftBar.jsx"
 import ProductCard from "../../components/Product/ProductCard.jsx"
 import Footer from "../../components/Layout/Footer/Footer.jsx"
+import "./Home.css"
 function Home() {
     return (<>
         <div className="home-page">
@@ -13,6 +14,16 @@ function Home() {
                     <Leftbar/>
                 </div>
                 <div className="product-catalog">
+                    {/* dhoro ami ekhane multiple product show korbo */}
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard />
+                    <ProductCard/>
+                    <ProductCard/>
+                    <ProductCard/>
+                    <ProductCard />
                     <ProductCard/>
                 </div>
             </div>
