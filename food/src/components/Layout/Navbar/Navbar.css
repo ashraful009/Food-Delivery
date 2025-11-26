@@ -1,144 +1,160 @@
 /* Navbar.css */
+
+/* Global Reset for this component */
 body, #root {
-  background: #ffffff !important;
+  background: #f8f9fa; /* হালকা গ্রে ব্যাকগ্রাউন্ড পুরো বডির জন্য ভালো */
 }
 
-/* Container */
+/* Navbar Container */
 .navbar {
   width: 100%;
-  padding: 14px 36px;
+  height: 80px; /* হাইট ফিক্সড করে দিলাম যাতে লেআউট না ভাঙ্গে */
+  padding: 0 40px;
   background: #ffffff;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 15px rgba(0,0,0,0.05); /* শ্যাডো একটু সফট করলাম */
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  position: sticky; 
+  font-family: 'Segoe UI', sans-serif;
+  
+  /* Sticky Position */
+  position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-/* LEFT: logo + menu + search */
+/* --- LEFT SIDE --- */
 .nav-left {
   display: flex;
   align-items: center;
-  gap: 36px;           /* distance between logo, menu, search */
+  gap: 40px;
 }
 
-/* Logo */
+/* Logo Styling */
 .logo {
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 0.6px;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  cursor: pointer;
 }
 .logo .blue {
-  color: #1e88ff; /* blue */
+  color: #1e88ff;
 }
 .logo .green {
-  color: #3bb000; /* green */
+  color: #aeff00; /* Theme Lime Green Color */
+  text-shadow: 0px 1px 1px rgba(0,0,0,0.1); /* হালকা শ্যাডো যাতে চোখে পড়ে */
 }
 
-/* Menu */
+/* Menu Items */
 .menu {
   display: flex;
   list-style: none;
-  gap: 22px;
+  gap: 25px;
   margin: 0;
   padding: 0;
   align-items: center;
 }
 .menu li {
-  font-size: 14px;
-  color: #333;
+  font-size: 15px;
+  font-weight: 600;
+  color: #555;
   cursor: pointer;
-  white-space: nowrap;
-  transition: color 0.15s ease, transform 0.12s ease;
+  transition: all 0.2s ease;
 }
 .menu li:hover {
-  color: #000;
-  transform: translateY(-1px);
+  color: #1e88ff; /* হোভার করলে ব্লু হবে */
+  transform: translateY(-2px);
 }
 
-/* Search box (placed inside .nav-left per your JSX) */
+/* Search Box */
 .search-box {
   position: relative;
   display: flex;
   align-items: center;
 }
 .search-box input {
-  width: 300px;
-  max-width: 36vw;
-  padding: 9px 14px 9px 38px;
-  background: #f3f3f3;
+  width: 280px;
+  padding: 10px 15px 10px 40px;
+  background: #f1f3f5;
   border: 1px solid transparent;
-  border-radius: 26px;
+  border-radius: 50px;
   outline: none;
   font-size: 14px;
-  color: #222;
-  transition: background 0.15s ease, box-shadow 0.12s ease;
+  color: #333;
+  transition: all 0.3s ease;
 }
 .search-box input:focus {
   background: #fff;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
-  border-color: rgba(0,0,0,0.06);
+  border-color: #aeff00; /* ফোকাস করলে গ্রিন বর্ডার */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-/* icon inside search */
 .search-icon {
   position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 16px;
-  color: #9aa0a6;
+  left: 15px;
+  font-size: 18px;
+  color: #888;
   pointer-events: none;
 }
 
-/* RIGHT: cart etc. */
+/* --- RIGHT SIDE (Cart) --- */
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 20px;
 }
 
-/* simple cart */
-.cart {
+/* Cart Icon Container */
+.cart-icon-container {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  font-size: 14px;
-  color: #222;
-  padding: 6px 10px;
-  border-radius: 8px;
-  transition: background 0.12s ease;
-}
-.cart:hover {
-  background: rgba(0,0,0,0.03);
+  padding: 10px;
+  border-radius: 50%;
+  transition: background 0.2s;
 }
 
-/* cart badge (if you add one later) */
+.cart-icon-container:hover {
+  background-color: #f1f3f5;
+}
+
+/* SVG Icon */
+.cart-svg {
+  color: #333;
+  width: 26px;
+  height: 26px;
+}
+
+/* Cart Badge (Number) */
 .cart-badge {
   position: absolute;
-  top: -6px;
-  right: -6px;
-  background: #2ecc40;
-  color: white;
+  top: 2px;
+  right: 2px;
+  background: #aeff00; /* Lime Green */
+  color: #000;
   font-size: 11px;
-  padding: 3px 6px;
-  border-radius: 999px;
+  font-weight: 800;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Responsive: small screens */
-@media (max-width: 920px) {
-  .menu { display: none; } /* hide menu on smaller screens */
-  .search-box input { width: 180px; max-width: 40vw; }
-  .logo { font-size: 20px; }
-  .nav-left { gap: 18px; }
+/* --- Responsive Design --- */
+@media (max-width: 1024px) {
+  .menu { display: none; } /* ট্যাবলেট ভিউতে মেনু হাইড */
+  .search-box input { width: 200px; }
+  .logo { font-size: 22px; }
 }
 
-@media (max-width: 520px) {
-  .search-box input { display: none; } /* hide search on very small */
-  .navbar {
-    padding: 12px 16px;
-  }
+@media (max-width: 600px) {
+  .navbar { padding: 0 20px; }
+  .search-box { display: none; } /* মোবাইলে সার্চ হাইড */
+  .logo .green { display: inline-block; } /* শুধু লোগো আর কার্ট থাকবে */
 }
