@@ -1,49 +1,216 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap');
+/* ProductPage.css */
 
-body {
-    margin: 0;
-    font-family: 'Manrope', sans-serif;
-    background-color: #f7f7f7; 
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; 
-    overflow-x: hidden;
-}
-.product-info {
-    display: flex;
-    flex-direction: row; 
-    background-color: #ffffff; 
-    border-radius: 24px; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    max-width: 1200px; 
-    margin: 40px auto; 
-    overflow: hidden; 
+.product-details-container {
+  display: flex;
+  gap: 60px; /* গ্যাপ বাড়িয়েছি */
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 30px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #222;
 }
 
-.left-side {
-    flex: 1.2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px; 
-    background-color: #fcfcfc; 
-    border-radius: 24px 0 0 24px;
-    position: relative; 
-    overflow: hidden;
+/* --- LEFT SIDE (Sticky) --- */
+.details-left {
+  flex: 0 0 45%;
 }
 
-.left-side img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 15px; /* ছবির ভেতরের ছবির কোণা গোলাকার */
-    object-fit: cover; /* যদি ইমেজ সাইজ ভিন্ন হয় */
+/* ইমেজ এবং চার্ট যাতে স্ক্রল করার সময় ফিক্সড থাকে */
+.sticky-wrapper {
+  position: sticky;
+  top: 100px; /* নেভবার এর নিচে আটকাবে */
 }
-.right-side {
-    flex: 1; /* ডান পাশের অংশ তুলনামূলক কম চওড়া */
-    padding: 40px; /* ছবির রাইট সাইডের প্যাডিং */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08); /* শ্যাডো বাড়িয়েছি */
+  margin-bottom: 25px;
+}
+
+.main-image {
+  width: 100%;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.image-wrapper:hover .main-image {
+  transform: scale(1.03); /* মাউস নিলে হালকা জুম হবে */
+}
+
+.badge-on-image {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #fff;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* নিউট্রিশন চার্ট ডিজাইন */
+.nutritional-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.nutri-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f8f9fa; /* হালকা গ্রে */
+  padding: 12px 5px;
+  border-radius: 18px;
+  flex: 1;
+  text-align: center;
+  border: 1px solid transparent;
+  transition: 0.2s;
+}
+
+.nutri-item:hover {
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  border-color: #eee;
+}
+
+.nutri-item.main-cal {
+  background: #fff;
+  border: 2px solid #aeff00; /* থিম কালার বর্ডার */
+}
+
+.n-value { font-weight: 800; font-size: 15px; color: #000; }
+.n-unit, .n-label { font-size: 11px; color: #666; margin-bottom: 2px; }
+.n-badge {
+  font-size: 10px; padding: 2px 8px; border-radius: 10px; margin-top: 4px; font-weight: 700;
+}
+.n-badge.low { background: #dcfce7; color: #166534; }
+.n-badge.medium { background: #fef9c3; color: #854d0e; }
+
+
+/* --- RIGHT SIDE --- */
+.details-right {
+  flex: 1;
+}
+
+.header-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.product-title {
+  font-size: 36px;
+  font-weight: 900; /* এক্সট্রা বোল্ড */
+  line-height: 1.15;
+  margin: 0 0 15px 0;
+  color: #1a1a1a;
+}
+
+.rating-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.review-count { font-size: 14px; color: #777; text-decoration: underline; cursor: pointer; }
+
+/* প্রাইস সেকশন */
+.price-action-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #eee; /* নিচে হালকা দাগ */
+}
+
+.current-price { font-size: 42px; font-weight: 800; color: #1a1a1a; }
+.old-price { font-size: 20px; color: #bbb; text-decoration: line-through; margin-left: 10px;}
+
+.action-buttons-row { display: flex; gap: 12px; }
+
+.btn-add-cart {
+  background-color: #aeff00;
+  color: #000;
+  border: none;
+  padding: 16px 32px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 15px rgba(174, 255, 0, 0.3);
+}
+
+.btn-add-cart:hover {
+  background-color: #9ce000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(174, 255, 0, 0.4);
+}
+
+/* গোল আইকন বাটন */
+.btn-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid #e5e5e5;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #555;
+}
+
+.btn-icon:hover {
+  border-color: #aeff00;
+  color: #000;
+  background: #fcfdec;
+  transform: translateY(-2px);
+}
+
+/* ইনফো কার্ড */
+.info-card {
+  background: #fdfdfd;
+  padding: 25px;
+  border-radius: 20px;
+  border: 1px solid #f0f0f0;
+  margin-bottom: 40px;
+}
+
+.info-row { display: flex; justify-content: space-between; align-items: center; font-size: 14px; }
+.info-left { display: flex; gap: 8px; align-items: center; }
+
+.status-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; }
+.stock-status { color: #15803d; font-weight: 700; }
+.shop-count { color: #666; }
+
+.info-link {
+  color: #1a1a1a; text-decoration: none; font-weight: 600;
+  display: flex; align-items: center; gap: 6px;
+  transition: 0.2s;
+}
+.info-link:hover { color: #aeff00; }
+
+.divider { height: 1px; background: #eee; margin: 15px 0; }
+
+.description-section h3 { font-size: 20px; font-weight: 800; margin-bottom: 15px; }
+.description-section p { font-size: 16px; color: #555; line-height: 1.7; margin-bottom: 15px; }
+
+/* রেসপন্সিভ */
+@media (max-width: 900px) {
+  .product-details-container { flex-direction: column; gap: 30px; }
+  .sticky-wrapper { position: static; }
+  .price-action-section { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .action-buttons-row { width: 100%; justify-content: space-between; }
+  .btn-add-cart { flex: 1; }
 }
