@@ -1,10 +1,13 @@
 import "./ProductCard.css";
-
-function ProductCard({data}) {
+import { useNavigate } from "react-router-dom";
+function ProductCard({ data }) {
+  const navigate = useNavigate();
   const { name, image, price, category, rating, description } = data;
   return (
     <>
-      <div className="product-card">
+      <div className="product-card"
+      onClick={() => navigate(`/product/${id}`)}
+      style={{ cursor: "pointer" }}>
         <div className="product-image">
           <img src={image} alt={name} />
           <span className="badge">On Sale</span>
@@ -28,13 +31,13 @@ function ProductCard({data}) {
 
             <div className="price-tag">
               <h3 className="price">৳ {price}</h3>
-              <span className="original-price">৳ {price + 50}</span>
+              <span className="original-price">৳ {parseInt(price) + 50}</span>
             </div>
           </div>
 
           <div className="action-buttons">
-            <button className="add-btn">Add to cart</button>
-            <button className="buy-btn">Buy Now</button>
+            <button className="add-btn" onClick={(e) => e.stopPropagation()}>Add to cart</button>
+            <button className="buy-btn" onClick={(e) => e.stopPropagation()}>Buy Now</button>
           </div>
         </div>
       </div>

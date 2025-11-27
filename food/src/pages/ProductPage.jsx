@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { useParams } from "react-router-dom";
+import { FoodContext } from "../Context/FoodContext.jsx";
 import "./ProductPage.css";
 import image from "../assets/chicken.webp"; 
 
 function ProductPage() {
-  // লাভ রিয়েক্টের জন্য স্টেট (ক্লিক করলে লাল হবে)
-  const [liked, setLiked] = useState(false);
+    const [liked, setLiked] = useState(false);
+    const { id } = useParams(); // URL থেকে আইডি পেলাম (যেমন: 1, 2)
+    const { foods } = useContext(FoodContext); // সব খাবার আনলাম
+    // ৩. আইডি মিলিয়ে স্পেসিফিক খাবার খুঁজছি
+  // URL এর id স্ট্রিং থাকে, তাই parseInt দিয়ে নাম্বারে কনভার্ট করলাম
+    const product = foods.find((item) => item.id === parseInt(id));
 
+  // যদি প্রোডাক্ট না পাওয়া যায় (ভুল আইডি)
+    if (!product) {
+        return <div style={{textAlign:"center", marginTop:"50px"}}>Product not found! 😢</div>;
+    }
   return (
     <div className="product-details-container">
       
@@ -13,7 +23,7 @@ function ProductPage() {
       <div className="details-left">
         <div className="sticky-wrapper">
             <div className="image-wrapper">
-            <img src={image} alt="Wok Ramen" className="main-image" />
+            <img src={product.image} alt={product.name} className="main-image" />
             <span className="badge-on-image">On Sale</span>
             </div>
 
@@ -57,25 +67,25 @@ function ProductPage() {
         {/* Breadcrumb & ID */}
         <div className="header-meta">
           <span className="breadcrumb">Catalog &gt; Prepared meal &gt; Second courses</span>
-          <span className="item-id">Item: 65248</span>
+                  <span className="item-id">Item: {product.id }0024</span>
         </div>
 
         {/* Title */}
         <h1 className="product-title">
-          Wok Ramen with chicken in soy and garlic sauce
+          {product.name}
         </h1>
 
         {/* Ratings */}
         <div className="rating-row">
-          <div className="stars">⭐⭐⭐⭐⭐</div>
+          <div className="stars">⭐⭐⭐⭐⭐ ({product.rating})</div>
           <span className="review-count">25 reviews</span>
         </div>
 
         {/* Price & Cart Actions */}
         <div className="price-action-section">
           <div className="price-box">
-            <span className="current-price">৳ 250</span>
-            <span className="old-price">৳ 300</span>
+            <span className="current-price">৳ {product.price}</span>
+            <span className="old-price">৳ {parseInt(product.price) + 50}</span>
           </div>
           
           <div className="action-buttons-row">
@@ -133,10 +143,9 @@ function ProductPage() {
         <div className="description-section">
           <h3>Description</h3>
           <p>
+            Enjoy our delicious <strong>{product.name}</strong> from the <strong>{product.category}</strong> menu. 
             Golden noodles stir-fried in a spicy soy-garlic sauce and reddish
-            chicken pieces are the stars of this dish. Add a few bright touches
-            of hot pepper rings or green onion springs to the dish and enjoy a
-            hearty, delicious lunch (or dinner).
+            chicken pieces are the stars of this dish.  
           </p>
           <p>
             This meal provides a perfect balance of nutrition and taste, crafted specially by our expert chefs using locally sourced fresh ingredients.
