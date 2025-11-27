@@ -1,13 +1,18 @@
 import "./ProductCard.css";
 import { useNavigate } from "react-router-dom";
+
 function ProductCard({ data }) {
   const navigate = useNavigate();
-  const { name, image, price, category, rating, description } = data;
+  
+  const { id, name, image, price, category, rating, description } = data;
+
   return (
     <>
-      <div className="product-card"
-      onClick={() => navigate(`/product/${id}`)}
-      style={{ cursor: "pointer" }}>
+      <div 
+        className="product-card"
+        onClick={() => navigate(`/product/${id}`)}
+        style={{ cursor: "pointer" }}
+      >
         <div className="product-image">
           <img src={image} alt={name} />
           <span className="badge">On Sale</span>
@@ -26,7 +31,7 @@ function ProductCard({ data }) {
             <h2 className="title">{name}</h2>
             
             <p className="description">
-              {description}
+              {description ? description : "Delicious meal prepared with fresh ingredients."}
             </p>
 
             <div className="price-tag">

@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
-import { FoodProvider } from "../src/Context/FoodContext.jsx"
+import './index.css';
+
+import { BrowserRouter } from 'react-router-dom';
+import { FoodProvider } from './Context/FoodContext.jsx'; 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* পুরো অ্যাপকে প্রোভাইডার দিয়ে র‍্যাপ করে দিলাম */}
-    <FoodProvider>
+    <BrowserRouter>
+      <FoodProvider>
         <App />
-    </FoodProvider>
+      </FoodProvider>
+    </BrowserRouter>
   </React.StrictMode>,
 );
