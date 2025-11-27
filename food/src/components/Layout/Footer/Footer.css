@@ -3,7 +3,7 @@
 .footer {
   background-color: #1a1a1a; /* ডার্ক ব্যাকগ্রাউন্ড */
   color: #fff;
-  padding: 60px 0 0 0;
+  padding: 30px 0 0 0;
   font-family: 'Segoe UI', sans-serif;
   border-top-left-radius: 60px; /* উপরে সুন্দর কার্ভ ডিজাইন */
   border-top-right-radius: 60px;
@@ -16,7 +16,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  max-width: 1200px;
+  max-width: 95%;
   margin: 0 auto;
   padding: 0 40px;
   gap: 30px;
@@ -151,8 +151,8 @@ ul li a:hover {
 /* --- Copyright Bar --- */
 .footer-bottom {
   text-align: center;
-  padding: 20px;
-  margin-top: 40px;
+  padding: 10px;
+  margin-top: 20px;
   border-top: 1px solid #333;
   color: #777;
   font-size: 13px;

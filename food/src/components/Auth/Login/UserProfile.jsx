@@ -9,18 +9,16 @@ const UserProfile = () => {
     fullName: "Ashraful Islam",
     id: "191-15-13654", 
     email: "ashraful@example.com",
-    phone: "+880 1712 345 678",
-    hallName: "Daffodil International Hall", 
-    image: defaultImg,
+    phone: "0 1712 345 678",
+    hallName: "Pong Hall", 
+    image: defaultImg, 
   });
 
-  // ৩. ইনপুট চেঞ্জ হ্যান্ডলার
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   };
 
-  // ৪. ছবি চেঞ্জ করার হ্যান্ডলার
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -33,7 +31,6 @@ const UserProfile = () => {
     <div className="profile-container">
       <div className="profile-card">
         
-        {/* --- টপ সেকশন (ছবি এবং নাম) --- */}
         <div className="profile-header">
           <div className="img-container">
             <img src={user.image} alt="Profile" className="profile-img" />
@@ -42,7 +39,6 @@ const UserProfile = () => {
           <div className="header-info">
             <h2 className="display-name">{user.fullName}</h2>
             
-            {/* ছবি চেঞ্জ বাটন (লুকানো ইনপুট দিয়ে ডিজাইন করা) */}
             <label htmlFor="file-upload" className="change-img-btn">
               Change Image
             </label>
@@ -58,10 +54,8 @@ const UserProfile = () => {
 
         <hr className="divider" />
 
-        {/* --- ডিটেইলস সেকশন (লিস্ট) --- */}
         <div className="profile-details">
           
-          {/* Full Name (Editable) */}
           <div className="detail-row">
             <label>Full Name</label>
             {isEditing ? (
@@ -77,13 +71,11 @@ const UserProfile = () => {
             )}
           </div>
 
-          {/* ID (Not Editable - Locked) */}
           <div className="detail-row">
             <label>ID</label>
             <span className="value readonly">{user.id} <span className="lock-icon">🔒</span></span>
           </div>
 
-          {/* Email (Editable) */}
           <div className="detail-row">
             <label>Email</label>
             {isEditing ? (
@@ -99,7 +91,6 @@ const UserProfile = () => {
             )}
           </div>
 
-          {/* Phone Number (Editable) */}
           <div className="detail-row">
             <label>Phone Number</label>
             {isEditing ? (
@@ -115,7 +106,6 @@ const UserProfile = () => {
             )}
           </div>
 
-          {/* Hall Name (Not Editable - Locked) */}
           <div className="detail-row">
             <label>Hall Name</label>
             <span className="value readonly">{user.hallName} <span className="lock-icon">🔒</span></span>
@@ -123,7 +113,6 @@ const UserProfile = () => {
 
         </div>
 
-        {/* --- বটম সেকশন (এডিট বাটন) --- */}
         <div className="profile-footer">
           <button 
             className={`action-btn ${isEditing ? "save-btn" : "edit-btn"}`}

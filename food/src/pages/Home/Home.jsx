@@ -1,9 +1,13 @@
+import { useContext } from "react";
+import { FoodContext } from "../../Context/FoodContext.jsx";
+
 import Navbar from "../../components/Layout/Navbar/Navbar.jsx";
 import Leftbar from "../../components/Layout/LeftBar/LeftBar.jsx"
 import ProductCard from "../../components/Product/ProductCard.jsx"
 import Footer from "../../components/Layout/Footer/Footer.jsx"
 import "./Home.css"
 function Home() {
+    const {foods} = useContext(FoodContext)
     return (<>
         <div className="home-page">
             <div className="nav-bar">
@@ -14,17 +18,12 @@ function Home() {
                     <Leftbar/>
                 </div>
                 <div className="product-catalog">
-                    {/* dhoro ami ekhane multiple product show korbo */}
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard />
-                    <ProductCard/>
-                    <ProductCard/>
-                    <ProductCard/>
-                    <ProductCard />
-                    <ProductCard/>
+                    {foods.map((item) => (
+                        <ProductCard
+                        key = { item.id }
+                        data = { item }
+                        />
+                    ))}
                 </div>
             </div>
             <div className="footer">
